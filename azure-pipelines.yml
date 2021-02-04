@@ -1,3 +1,4 @@
+  
 trigger:
 - master
 
@@ -31,9 +32,9 @@ stages:
         command: 'pack'
         packagesToPack: '**/*.csproj'
         versioningScheme: 'off'
-- task: DotNetCoreCLI@2
-  inputs:
-    command: 'push'
-    packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
-    nuGetFeedType: 'internal'
-    publishVstsFeed: '1025f9e6-82da-48ce-ba8f-670b3ad6bfdf/8f826c0b-9341-4834-bf97-3a353a6ae404'
+    - task: DotNetCoreCLI@2
+      inputs:
+       command: 'push'
+      packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
+      nuGetFeedType: 'internal'
+      publishVstsFeed: '1025f9e6-82da-48ce-ba8f-670b3ad6bfdf/8f826c0b-9341-4834-bf97-3a353a6ae404'
